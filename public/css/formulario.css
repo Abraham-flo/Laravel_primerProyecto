@@ -1,66 +1,113 @@
+/* Importar una fuente más moderna si es posible */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
+    font-family: "Inter", sans-serif;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
-    background: white;
+    max-width: 420px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.98);
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-h1 {
-    color: #2c3e50;
-    font-size: 22px;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 10px;
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #1e293b;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.form-header p {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    color: #34495e;
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-input {
+input[type="text"],
+input[type="number"],
+select {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #dcdde1;
-    border-radius: 8px;
-    box-sizing: border-box; /* Evita que el input se salga del contenedor */
-    transition: 0.3s;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Crucial para el ancho */
 }
 
-input:focus {
-    border-color: #4a90e2;
+input:focus,
+select:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
     outline: none;
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
-button {
+.btn-submit {
     width: 100%;
-    background-color: #4a90e2;
+    background: #2563eb;
     color: white;
-    padding: 12px;
+    padding: 14px;
+    border-radius: 12px;
     border: none;
-    border-radius: 8px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-button:hover {
-    background-color: #357abd;
+.btn-submit:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
 }

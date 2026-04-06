@@ -1,23 +1,42 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario de Usuario</title>
-    <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Formulario de usuario</h1>
-        <form method="POST" action="/procesar">
-            @csrf
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" required>
+@extends('layouts.app')
 
-            <label for="edad">Edad:</label>
-            <input type="number" name="edad" id="edad" required>
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
+@endpush
 
-            <button type="submit">Enviar</button>
-        </form>
+@section('contenido')
+<div class="container">
+    <div class="form-header">
+        <h2>Registro de Usuario</h2>
+        <p>Por favor, completa tus datos personales</p>
     </div>
-</body>
-</html>
+
+    <form method="POST" action="/procesar">
+        @csrf
+        
+        <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" placeholder="25" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ocupacion">Ocupación Actual</label>
+            <select id="ocupacion" name="ocupacion" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="estudiante">💻 Estudiante</option>
+                <option value="profesionista">🧑‍💻 Profesionista</option>
+                <option value="otro">⚙️ Otro</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-submit">
+            <span>Enviar</span>
+        </button>
+    </form>
+</div>
+@endsection

@@ -1,14 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Resultado</title>
-    <link rel="stylesheet" href="{{ asset('css/resultado.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>{{ $mensaje }}</h1>
-        <a href="{{ url('/') }}" class="btn-volver">Volver</a>
+@extends('layouts.app')
+
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/resultado.css') }}">
+@endpush
+
+@section('contenido')
+<div class="card-resultado">
+    <div class="result-header">
+        <div class="icon-user">👤</div>
+        <h2>Perfil Generado</h2>
     </div>
-</body>
-</html>
+
+    <div class="result-body">
+        <div class="info-group">
+            <span class="label">Nombre</span>
+            <p class="value">{{ $nombre }}</p>
+        </div>
+        <div class="info-group">
+            <span class="label">Edad</span>
+            <p class="value">{{ $edad }} años</p>
+        </div>
+        <div class="info-group">
+            <span class="label">Ocupación</span>
+            <p class="value">{{ ucfirst($ocupacion) }}</p>
+        </div>
+    </div>
+
+    <div class="message-box">
+        <p>{{ $mensaje }}</p>
+    </div>
+
+    <a href="/" class="btn-back">Volver al Registro</a>
+</div>
+@endsection
